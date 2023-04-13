@@ -20,15 +20,3 @@ SELECT
           ) AS traject_id
 FROM
   visits_seq;
-
-SELECT
-  client_id,
-  start_date,
-  datediff as date_difference,
-  end_date,
-  COALESCE(
-    SUM(CASE WHEN start_date <= DATEADD(day, 7, previous_end_date) THEN 0 ELSE 1 END)
-    OVER (PARTITION BY client_id ORDER BY start_date ROWS UNBOUNDED PRECEDING), 0
-          ) AS traject_id
-FROM
-  visits_seq;
