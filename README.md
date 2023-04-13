@@ -1,2 +1,2 @@
-# git-try-out
+# hospital_visits
 Try out Repo 
